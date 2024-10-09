@@ -1,0 +1,24 @@
+
+# Use the official Node.js image (version 20)
+FROM node:20
+
+# Set the working directory in the container
+WORKDIR /app/single-app
+
+# Copy only the package.json files to install dependencies
+COPY package*.json /app/single-app
+
+# Install dependencies
+RUN npm install
+
+# Copy the entire app code from node-apps to the working directory
+COPY . /app/node-code/single-app
+
+# Environment variable to pass port number,default 3000
+ENV PORT=3000
+
+# Expose the port that your app will run on
+EXPOSE $PORT
+
+# Command to run the application
+CMD ["node", "/app/node-code/single-app/index.js"]

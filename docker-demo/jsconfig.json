@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "checkJs": false,
+		"module": "esnext",
+		"moduleResolution": "node",
+
+  },
+  "include": ["node-code/**/*"]
+}

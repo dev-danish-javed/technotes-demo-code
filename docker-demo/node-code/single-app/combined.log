@@ -1,0 +1,69 @@
+info - 2024-09-20 10:21:28.813 - greet route registered !!
+info - 2024-09-20 10:21:28.817 - single-controller  is running on http://localhost:3000
+info - 2024-09-20 17:10:28.055 - greet route registered !!
+info - 2024-09-20 17:10:28.065 - single-controller  is running on http://localhost:3000
+info - 2024-09-20 17:11:04.484 - greet route registered !!
+info - 2024-09-20 17:11:04.490 - single-controller  is running on http://localhost:3000
+info - 2024-09-20 17:11:42.348 - Request received to greet danish
+info - 2024-09-20 17:11:44.179 - Request received to greet danish
+info - 2024-09-20 17:11:44.965 - Request received to greet danish
+info - 2024-09-20 17:11:45.270 - Request received to greet danish
+info - 2024-09-20 17:11:45.775 - Request received to greet danish
+info - 2024-09-20 17:11:46.015 - Request received to greet danish
+info - 2024-09-20 22:36:34.775 - greet route registered !!
+info - 2024-09-20 22:36:34.782 - App is running on http://*:3000
+info - 2024-09-20 22:36:52.011 - greet route registered !!
+info - 2024-09-20 22:36:52.016 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 11:04:18.751 - greet route registered !!
+info - 2024-09-21 11:04:18.755 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 11:04:29.766 - greet route registered !!
+info - 2024-09-21 11:04:29.770 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 11:05:49.776 - greet route registered !!
+info - 2024-09-21 11:05:49.780 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 11:07:50.849 - greet route registered !!
+info - 2024-09-21 11:07:50.854 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 11:08:06.294 - greet route registered !!
+info - 2024-09-21 11:08:06.299 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:28:06.642 - greet route registered !!
+info - 2024-09-21 16:28:06.646 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:28:24.651 - greet route registered !!
+info - 2024-09-21 16:28:24.655 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:28:50.403 - greet route registered !!
+info - 2024-09-21 16:28:50.406 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:32:29.143 - greet route registered !!
+info - 2024-09-21 16:32:29.147 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:40:15.018 - greet route registered !!
+info - 2024-09-21 16:40:15.023 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:42:01.956 - greet route registered !!
+info - 2024-09-21 16:42:01.960 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:42:17.655 - greet route registered !!
+info - 2024-09-21 16:42:17.660 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:42:37.217 - greet route registered !!
+info - 2024-09-21 16:42:37.222 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:42:50.680 - greet route registered !!
+info - 2024-09-21 16:42:50.684 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:44:55.784 - greet route registered !!
+info - 2024-09-21 16:44:55.788 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:45:32.651 - greet route registered !!
+info - 2024-09-21 16:45:32.656 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:48:15.421 - greet route registered !!
+info - 2024-09-21 16:48:15.424 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}
+info - 2024-09-21 16:48:39.603 - greet route registered !!
+info - 2024-09-21 16:48:39.607 - App is running on http://*:3001
+info - 2024-09-21 16:49:45.044 - greet route registered !!
+info - 2024-09-21 16:49:45.049 - App is running on http://*:3001
+info - 2024-09-21 18:37:08.456 - greet route registered !!
+info - 2024-09-21 18:37:08.462 - App is running on http://*:3001
+info - 2024-09-21 18:37:17.326 - greet route registered !!
+info - 2024-09-21 18:37:17.336 - App is running on http://*:8080
+info - 2024-09-21 18:38:38.681 - greet route registered !!
+info - 2024-09-21 18:38:38.687 - App is running on http://*:8080
+info - 2024-09-21 18:38:44.035 - Request received to greet danish
+info - 2024-09-21 19:53:10.720 - greet route registered !!
+info - 2024-09-21 19:53:10.726 - App is running on http://*:3000
+info - 2024-09-21 19:53:21.485 - Request received to greet danish
+info - 2024-09-21 19:54:02.256 - greet route registered !!
+info - 2024-09-21 19:54:02.262 - App is running on http://*:3000
+info - 2024-09-21 19:54:05.843 - Request received to greet danish
+info - 2024-09-21 20:11:41.991 - greet route registered !!
+info - 2024-09-21 20:11:41.998 - App is running on http://*:8080
