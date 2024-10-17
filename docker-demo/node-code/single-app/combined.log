@@ -67,3 +67,7 @@ info - 2024-09-21 19:54:02.262 - App is running on http://*:3000
 info - 2024-09-21 19:54:05.843 - Request received to greet danish
 info - 2024-09-21 20:11:41.991 - greet route registered !!
 info - 2024-09-21 20:11:41.998 - App is running on http://*:8080
+info - 2024-10-16 09:34:10.640 - greet route registered !!
+info - 2024-10-16 09:34:10.649 - App is running on http://*:3000
+info - 2024-10-16 09:36:10.518 - greet route registered !!
+info - 2024-10-16 09:36:10.523 - Failed to start server !! Error : {"code":"EADDRINUSE","errno":-4091,"syscall":"listen","address":"::","port":3000}

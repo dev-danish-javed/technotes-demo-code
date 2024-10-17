@@ -15,7 +15,7 @@ class ServiceB extends Controller {
       const response = await fetch('http://localhost:3002/serviceKey');
       const data = response.ok ? await response.text() : 'Error in API call';
 
-      res.send('Result of Service B data fetch : ' + data);
+      res.send('Result of ServiceB data fetch : ' + data);
     } catch (err) {
       res.send('We got an error : ' + JSON.stringify(err));
     }
