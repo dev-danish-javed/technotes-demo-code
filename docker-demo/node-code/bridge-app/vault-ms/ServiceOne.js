@@ -11,7 +11,7 @@ class ServiceOne extends Controller {
 
   getServiceKey = (req, res) => {
     this.logger.info('returning key');
-    res.send('Encrypted_Service_Key_In_AppOne');
+    res.send('Encrypted_Service_Key_From_Vault');
   };
 }
 

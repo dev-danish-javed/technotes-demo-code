@@ -1,0 +1,21 @@
+
+# Use the official Node.js image (version 20)
+FROM node:20
+
+# Set the working directory in the container
+WORKDIR /app/multi-netwrok-app/app-two
+
+# Copy only the package.json files to install dependencies
+COPY package*.json /app/multi-netwrok-app/app-two
+
+# Install dependencies
+RUN npm install
+
+# Copy the entire app code from node-apps to the working directory
+COPY . /app/node-code/multi-netwrok-app/app-two
+
+# Expose the port that your app will run on
+EXPOSE 3003
+
+# Command to run the application
+CMD ["node", "/app/node-code/multi-netwrok-app/app-two/index.js"]
