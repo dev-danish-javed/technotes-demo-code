@@ -1,23 +1,26 @@
-
 # Use the official Node.js image (version 20)
 FROM node:20
 
 # Set the working directory in the container
-WORKDIR /app/multi-netwrok-app/app-two
+WORKDIR /app/node-code/bridge-app/security-proccessor
 
 # Copy only the package.json files to install dependencies
-COPY package*.json /app/multi-netwrok-app/app-two
+COPY package*.json /app/node-code/bridge-app/security-proccessor
 
 # Install dependencies
 RUN npm install
 
-# Copy the entire app code from node-apps to the working directory
-COPY . /app/node-code/multi-netwrok-app/app-two
+# Copy the entire app code to the working directory
+COPY . /app/node-code/bridge-app/security-proccessor
 
 # Expose the port that your app will run on
 EXPOSE 3003
 
+# Define build argument
 ARG vault_ms_url
 
-# Command to run the application
-CMD ["node", "/app/node-code/multi-netwrok-app/app-two/index.js", "${vault_ms_url}"]
+# Pass the build argument as an environment variable
+ENV VAULT_MS_URL=${vault_ms_url}
+
+# Use shell form of CMD to interpolate environment variables correctly
+CMD node /app/node-code/bridge-app/security-proccessor/index.js --vault_ms_url $VAULT_MS_URL
