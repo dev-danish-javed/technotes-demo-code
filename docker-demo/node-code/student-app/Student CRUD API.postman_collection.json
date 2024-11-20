@@ -130,7 +130,7 @@
 			]
 		},
 		{
-			"name": "docker",
+			"name": "docker-1",
 			"item": [
 				{
 					"name": "Create Student",
@@ -241,6 +241,128 @@
 								"localhost"
 							],
 							"port": "8989",
+							"path": [
+								"students",
+								"1731265013521"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "docker-2",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Jane Doe\", \"age\": 20, \"grade\": \"A\"}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/students/id/1731265013521",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"students",
+								"id",
+								"1731265013521"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Jane Doe\", \"age\": 21, \"grade\": \"B+\"}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/students/1731265013521",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"students",
+								"1731265013521"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/students/1731265013521",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
 							"path": [
 								"students",
 								"1731265013521"
