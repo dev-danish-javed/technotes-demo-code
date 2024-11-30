@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-const dataFilePath = path.join(__dirname, 'data', 'students.json');
+const dataFilePath = path.join('/app/student-app/data', 'students.json');
 
 // Helper to read students from JSON
 const readStudents = () => {
