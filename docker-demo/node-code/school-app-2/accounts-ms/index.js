@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // in case of docker
-const appDataDirectory = "app/data/school-app/accounts-ms";
+const appDataDirectory = "/app/data/accounts-ms";
 // const appDataDirectory = __dirname;
 const appDBFileName = "accounts-data.json";
 

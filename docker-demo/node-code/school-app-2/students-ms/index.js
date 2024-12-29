@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // in case of docker
-const appDataDirectory = "/app/school-app/students-ms";
+const appDataDirectory = "/app/data/students-ms";
 // const appDataDirectory = __dirname;
 const appDBFileName = "students-data.json";
 const appPort = process.argv[2] || 8080;
@@ -17,25 +17,34 @@ const initializeFeeDetails = () =>{
 const saveClassDetails = (value) => {
     const fileFullPath = appDataDirectory + "/" + appDBFileName;
     try {
-        const fileExists = fs.existsSync(fileFullPath);
-        if (fileExists && !value) {
-            logger.info(`File already initialized at ${fileFullPath}`);
-            return;
+        const appDataDirectoryExists = fs.existsSync(appDataDirectory);
+        if(!appDataDirectoryExists){
+            logger.info(`Creating app data directory : ${appDataDirectory}`);
+            fs.mkdirSync(appDataDirectory, { recursive: true });
+            logger.info(`Directory created successfully: ${appDataDirectory}`);
         }
-        const initialContent = JSON.stringify(value || [], null, 2);
-        fs.writeFileSync(fileFullPath, initialContent, 'utf8');
 
-        logger.info(`Updated content in file: ${fileFullPath}`);
-        return true;
+        const fileExists = fs.existsSync(fileFullPath);
+        if (fileExists) {
+            if(!value){
+                logger.info(`File already initialized at ${fileFullPath}`);
+                return;
+            }
+        } else{
+            logger.info(`File doesn't exists !! Creating ${fileFullPath}`)
+        }
+        logger.info(`Adding content ${value} to file`);
+        const initialContent = JSON.stringify(value, null, 2) || '[]';
+        fs.writeFileSync(fileFullPath, initialContent, 'utf8');
+        logger.info(`Content updated successfully : ${fileFullPath}`);
     } catch (e) {
-        logger.error(`Error!! File name : ${appDBFileName}: ${e}`);
-        return false;
+        logger.error(`Encountered error ${e}`);
     }
 }
 
 const getStudentsData = () => {
     const studentsDataString = fs.readFileSync(appDataDirectory + '/' + appDBFileName, 'utf8');
-    return JSON.parse(studentsDataString||'[]');
+    return JSON.parse(studentsDataString) || [];
 }
 
 app.get("/test", (req, res) => {

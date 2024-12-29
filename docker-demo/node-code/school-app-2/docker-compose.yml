@@ -1,0 +1,40 @@
+services:
+  accounts-ms:
+    image: accounts-ms:v1
+    container_name: accounts-ms
+    pull_policy: build
+    build:
+      context: ./accounts-ms
+    ports:
+      - "8080:8080"
+    volumes:
+      - school-app-data:/app/data/accounts-ms
+    environment:
+      - STUDENTS_MS_URL=http://students-ms:8181
+    networks:
+      - school-app
+#    depends_on:
+#      - students-ms
+
+  students-ms:
+    image: students-ms:v1
+    pull_policy: build
+    container_name: students-ms
+    build:
+      context: ./students-ms
+      pull: false
+    ports:
+      - "8181:8181"
+    volumes:
+      - school-app-data:/app/data/students-ms
+    networks:
+      - school-app
+
+networks:
+  school-app:
+    name: school-app-network
+    driver: bridge
+
+volumes:
+  school-app-data:
+    name: school-app-data
