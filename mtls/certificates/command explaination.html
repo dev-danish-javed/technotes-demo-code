@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mTLS Commands Explanation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=JetBrains+Mono&family=Gill+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+</head>
+<body class="bg-gray-900 text-gray-200 p-8 max-w-4xl mx-auto">
+    <style>
+        body {
+            font-family: 'Gill Sans', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            display: block;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #1a1a1a;
+            border-radius: 0.5rem;
+            border: 1px solid #333;
+        }
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #1f2937;
+            border-radius: 0.5rem;
+        }
+        .command-explanation {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #4f46e5;
+        }
+    </style>
+
+    <h1 class="text-3xl font-bold mb-8 text-indigo-400">mTLS Commands Explanation</h1>
+
+    <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Certificate Authority (CA) Commands</h2>
+        
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate CA Private Key</h3>
+            <code onclick="this.select()">openssl genpkey -algorithm RSA -out certificate_authority/ca_private_key.pem</code>
+            <p>Flags:</p>
+            <ul class="list-disc ml-6 mt-2">
+                <li><strong>-algorithm RSA</strong>: Specifies RSA as the key generation algorithm</li>
+                <li><strong>-out</strong>: Specifies the output file path for the private key</li>
+            </ul>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate CA Self-signed Certificate</h3>
+            <code onclick="this.select()">openssl req -new -x509 -key certificate_authority/ca_private_key.pem -out certificate_authority/ca_certificate.pem -days 365 -subj "/CN=Danish"</code>
+            <p>Flags:</p>
+            <ul class="list-disc ml-6 mt-2">
+                <li><strong>-new</strong>: Creates a new certificate request</li>
+                <li><strong>-x509</strong>: Outputs a self-signed certificate instead of a certificate request</li>
+                <li><strong>-key</strong>: Specifies the private key to use</li>
+                <li><strong>-out</strong>: Specifies the output certificate file</li>
+                <li><strong>-days</strong>: Validity period in days</li>
+                <li><strong>-subj</strong>: Sets the subject name (CN = Common Name)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Server Certificate Commands</h2>
+        
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate Server Private Key</h3>
+            <code onclick="this.select()">openssl genpkey -algorithm RSA -out server_data/node_server_private_key.pem</code>
+            <p>Flags: Same as CA private key generation</p>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate Server CSR</h3>
+            <code onclick="this.select()">openssl req -new -key server_data/node_server_private_key.pem -out server_data/node_server_csr.csr -config server_data/server_cert.conf</code>
+            <p>Flags:</p>
+            <ul class="list-disc ml-6 mt-2">
+                <li><strong>-new</strong>: Creates a new certificate request</li>
+                <li><strong>-key</strong>: Specifies the private key file</li>
+                <li><strong>-out</strong>: Specifies the output CSR file</li>
+                <li><strong>-config</strong>: Specifies the configuration file</li>
+            </ul>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Sign Server Certificate with CA</h3>
+            <code onclick="this.select()">openssl x509 -req -in server_data/node_server_csr.csr -CA certificate_authority/ca_certificate.pem -CAkey certificate_authority/ca_private_key.pem -CAcreateserial -out server_data/node_server_certificate.pem -days 365 -extfile server_data/server_cert.conf -extensions v3_req</code>
+            <p>Flags:</p>
+            <ul class="list-disc ml-6 mt-2">
+                <li><strong>-req</strong>: Indicates input is a certificate request</li>
+                <li><strong>-in</strong>: Input CSR file</li>
+                <li><strong>-CA</strong>: CA certificate file</li>
+                <li><strong>-CAkey</strong>: CA private key file</li>
+                <li><strong>-CAcreateserial</strong>: Creates a serial number file if it doesn't exist</li>
+                <li><strong>-extfile</strong>: File containing certificate extensions</li>
+                <li><strong>-extensions</strong>: Which extensions to use from the file</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="text-2xl font-bold mb-4 text-indigo-300">Client Certificate Commands</h2>
+        
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate Client Private Key</h3>
+            <code onclick="this.select()">openssl genpkey -algorithm RSA -out client_data/java_client_private_key.pem</code>
+            <p>Flags: Same as previous key generation commands</p>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate Client CSR</h3>
+            <code onclick="this.select()">openssl req -new -key client_data/java_client_private_key.pem -out client_data/java_client_csr.csr -subj "/CN=client"</code>
+            <p>Flags: Similar to server CSR generation, with subject specified directly</p>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Sign Client Certificate with CA</h3>
+            <code onclick="this.select()">openssl x509 -req -in client_data/java_client_csr.csr -CA certificate_authority/ca_certificate.pem -CAkey certificate_authority/ca_private_key.pem -CAcreateserial -out client_data/java_client_certificate.pem -days 365</code>
+            <p>Flags: Similar to server certificate signing</p>
+        </div>
+
+        <div class="command-explanation">
+            <h3 class="text-xl font-semibold mb-2">Generate PKCS12 Keystore</h3>
+            <code onclick="this.select()">openssl pkcs12 -export -inkey client_data/java_client_private_key.pem -in client_data/java_client_certificate.pem -certfile certificate_authority/ca_certificate.pem -out client_data/java_client_identity.p12 -name "java_client_cert_alias" -passout pass:Danish</code>
+            <p>Flags:</p>
+            <ul class="list-disc ml-6 mt-2">
+                <li><strong>-export</strong>: Creates PKCS12 file</li>
+                <li><strong>-inkey</strong>: Private key file</li>
+                <li><strong>-in</strong>: Certificate file</li>
+                <li><strong>-certfile</strong>: Additional certificates to add</li>
+                <li><strong>-name</strong>: Friendly name for the certificate</li>
+                <li><strong>-passout</strong>: Specifies the export password</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('code').forEach(block => {
+            block.addEventListener('click', (e) => {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(e.target);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
+        });
+    </script>
+</body>
+</html>
