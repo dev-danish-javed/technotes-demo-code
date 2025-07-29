@@ -1,6 +1,5 @@
 *.md
 node_modules
 *.log
-*.log
 /docker-demo/node-code/school-app/accounts-ms/docs
 /docker-demo/node-code/school-app/students-ms/docs
